@@ -1,15 +1,11 @@
-$(CC) = gcc
+CC=gcc
+CFLAGS=-Wall -Werror
 
-all : hanoi
+sonwa:	sonwa.o
+	$(CC) -o sonwa sonwa.o -lm
 
-hanoi : hanoi.o
+sonwa.o:	sonwa.c
+	$(CC) $(CFLAGS) -c sonwa.c -lm
 
-    $(CC) -o hanoi hanoi.o 
-
-hanoi.o : *.c
-
-    $(CC) *.c -o hanoi.o
-
-clean : 
-
-    rm *.o hanoi
+clean:
+	rm -f sonwa sonwa.o
